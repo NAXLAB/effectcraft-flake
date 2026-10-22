@@ -31,28 +31,26 @@ You need Nix with flakes enabled
 Run the app without installing anything:
 
 ```sh
-nix run github:<owner>/<repo>
+nix run github:NAXLAB/effectcraft-flake
 ```
 
 Run the CLI, for example to render the demo composition headless:
 
 ```sh
-nix run github:<owner>/<repo>#effectcraft-cli -- render --out intro.mp4
+nix run github:NAXLAB/effectcraft-flake#effectcraft-cli -- render --out intro.mp4
 ```
 
 Install into your profile:
 
 ```sh
-nix profile install github:<owner>/<repo>
+nix profile install github:NAXLAB/effectcraft-flake
 ```
-
-Replace `<owner>/<repo>` with the location of this repository.
 
 ## Using it in your own flake
 
 ```nix
 {
-  inputs.effectcraft.url = "github:<owner>/<repo>";
+  inputs.effectcraft.url = "github:NAXLAB/effectcraft-flake";
 
   outputs = { self, nixpkgs, effectcraft, ... }: {
     # NixOS
@@ -112,8 +110,6 @@ may come from upstream rather than from this packaging.
   app, or launch under XWayland with `env -u WAYLAND_DISPLAY effectcraft`.
 - **Tests are not run during the build.** The upstream test suite includes
   GPU and UI snapshot tests that don't work in the Nix sandbox.
-- **Source pinning.** The exact upstream revision is pinned in `flake.lock`.
-  Update it with `nix flake update effectcraft-src`.
 
 ## Contributing
 
