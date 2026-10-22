@@ -1,0 +1,17 @@
+# Nix build outputs
+result
+result-*
+
+# direnv
+.direnv/
+.envrc
+
+# Cargo build output, if you build from a checkout inside the dev shell
+target/
+
+# Editor / OS noise
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*~
